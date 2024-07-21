@@ -1,0 +1,7 @@
+numpy
+openai
+chromadb
+langchain_community
+tiktoken
+beautifulsoup4
+pypdf

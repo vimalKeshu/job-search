@@ -1,7 +1,7 @@
 import json
 
 
-def load_test_data(json_file='./test/data/data.json'):
+def load_test_data(json_file='./api/storage/test/data/data.json'):
     data = {}
     try:
         with open(json_file, 'r') as f:
@@ -15,4 +15,4 @@ def load_test_data(json_file='./test/data/data.json'):
 
 
 if __name__ == '__main__':
-    print(load_test_data())
+    print(load_test_data(json_file='./api/storage/test/data/data.json'))

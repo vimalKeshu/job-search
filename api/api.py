@@ -6,7 +6,7 @@ from typing import List, Optional
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 
-from ops import load_test_data
+from api.common.ops import load_test_data
 
 job_list = load_test_data()
 # CORS middleware configuration

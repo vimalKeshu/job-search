@@ -1,12 +1,12 @@
 # imports
+from api.common.constant import *
+
 import traceback
 import tiktoken  # for computing tokens
 import requests
 
 from chromadb.api.types import GetResult
 from bs4 import BeautifulSoup
-
-from common.constant import *
 
 
 def num_tokens(text: str, model: str = GPT_MODEL) -> int:
@@ -37,21 +37,23 @@ def is_link_visited(link):
     return len(results["ids"]) > 0
 
 
-def get_gcp_job_document(job_id, link):
+def get_gcp_job_document(job_id, url, company):
 
-    page = requests.get(link)
+    page = requests.get(url)
     soup = BeautifulSoup(page.content, "html.parser")
     # results = soup.find_all("div", attrs={"class": "bE3reb"})
     # for res in results:
     #     res.decompose()
 
     results = soup.find_all("div", attrs={'data-id': job_id})
-    print("No. of results: ", len(results))
+    logging.debug("No. of results: ", len(results))
     job_element = results[0]
-    print(str(job_element))
+    logging.debug(str(job_element))
     job_description = str(job_element)
+    job_description += " job url:"+ url
+    job_description += " company:"+ company
     token = num_tokens(text=job_description)
-    print('no. of token:', token)
+    logging.debug('no. of token:', token)
     return (job_description, token)
 
 
@@ -60,27 +62,26 @@ def ingest_gcp_jobs(file_path: str):
         i = 0
         for line in file:
             if i == 0:
-                print('ignore header line:', line)
+                logging.debug('ignore header line:', line)
             else:
                 (link, id, company) = line.split(",")
                 url = link+'/'+id
                 if not is_link_visited(link=url):
                     try:
                         print(link, id, company)
-                        (doc, token) = get_gcp_job_document(
-                            link=url, job_id=id)
+                        (doc, token) = get_gcp_job_document(link=url, job_id=id, company=company)
                         embedding = get_embedding(text=doc)
                         store_jobs_data(embedding=embedding,
                                         doc=doc,
                                         id=url,
-                                        metadata={"company": company, "job_id": id, "token": token, "url": url})
-                        print('ingested job:', id)
+                                        metadata={"company": company, "job_id": id})
+                        logging.debug('ingested job:', id)
                     except:
                         traceback.print_exc()
 
                 else:
-                    print('job already exist:', id)
+                    logging.debug('job already exist:', id)
             i = i+1
 
 if __name__ == "__main__":
-    ingest_gcp_jobs(file_path= './data/job_links.csv')
+    ingest_gcp_jobs(file_path= './api/storage/test/jobs/job_links.csv')

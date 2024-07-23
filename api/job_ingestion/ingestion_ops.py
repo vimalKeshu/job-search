@@ -1,5 +1,5 @@
 # imports
-from api.common.constant import *
+from common.constant import *
 
 import traceback
 import tiktoken  # for computing tokens
@@ -69,7 +69,7 @@ def ingest_gcp_jobs(file_path: str):
                 if not is_link_visited(link=url):
                     try:
                         print(link, id, company)
-                        (doc, token) = get_gcp_job_document(link=url, job_id=id, company=company)
+                        (doc, token) = get_gcp_job_document(url=url, job_id=id, company=company)
                         embedding = get_embedding(text=doc)
                         store_jobs_data(embedding=embedding,
                                         doc=doc,
@@ -82,6 +82,3 @@ def ingest_gcp_jobs(file_path: str):
                 else:
                     logging.debug('job already exist:', id)
             i = i+1
-
-if __name__ == "__main__":
-    ingest_gcp_jobs(file_path= './api/storage/test/jobs/job_links.csv')

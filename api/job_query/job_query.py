@@ -1,6 +1,17 @@
 # imports
+import os 
+import sys
+
+currentdir = os.path.dirname(os.path.realpath(__file__))
+parentdir = os.path.dirname(currentdir)
+sys.path.append(parentdir)
+
 from chromadb.api.types import QueryResult
-from api.common.constant import *
+from common.constant import *
+
+logging.getLogger().setLevel(logging.INFO)
+logging.debug(currentdir)
+logging.debug(parentdir)
 
 def get_embedding(text, model=EMBEDDING_MODEL):
     """Return the embeddings of text."""
@@ -71,4 +82,4 @@ def ask(
 
 
 if __name__ == "__main__":
-    print(ask(query='Is there any google job in india country?'))
+    print(ask(query='Is there any google job in india country? please provide its link only as json'))

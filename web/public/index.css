@@ -7,8 +7,7 @@ body {
     color: #333;
 }
   
-/* Header Styling */
-header {
+/* header {
     background-color: #333;
     color: #fff;
     padding: 20px 0;
@@ -17,19 +16,49 @@ header {
 
 header h1 {
     margin: 0;
+} */
+/* Header Styling */
+header {
+    background-color: #F75250; /* Change to a blue shade for example */
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
 }
+
+header h1 {
+    margin: 0;
+    font-size: 24px; /* Increase font size for header title */
+}
+
+
+/* footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    position: fixed; 
+    bottom: 0;
+    width: 100%;
+}
+  
+footer p {
+    margin: 0;
+} */
 
 /* Footer Styling */
 footer {
-    background-color: #333;
+    background-color: #F75250; /* Same blue shade as header for consistency */
     color: #fff;
     padding: 20px 0;
     text-align: center;
     position: fixed; /* Fixed to bottom */
     bottom: 0;
     width: 100%; /* Full width */
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
 }
-  
+
 footer p {
     margin: 0;
+    font-size: 14px; /* Adjust font size */
 }

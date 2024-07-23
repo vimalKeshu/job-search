@@ -5,8 +5,8 @@ import sys
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-from api.common.constant import MAILTRIP_API_TOKEN 
-from api.email_sender.mailtrap.email_template import build_template
+from common.constant import MAILTRIP_API_TOKEN 
+from email_sender.mailtrap.email_template import build_template
 
 def send_email(receiver, html, subject="Job recommendation", sender="Job Recommender <job.recommender@itjobsrecommender.org>"):
     # Create a multipart message and set headers

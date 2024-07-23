@@ -17,24 +17,43 @@ function App() {
   }
       
   useEffect(() => {
-    fetchJobs('');
+    //fetchJobs('');
   }, []);
 
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
-    const query = event.target.value.trim()
-    if (query.length >= 3) {
-      fetchJobs(query);
+  }
+
+  // Function to trigger search on submit
+  const handleSearch = (event) => {
+    event.preventDefault();
+    if (searchTerm.length >= 3) {
+      fetchJobs(searchTerm);
     } else {
       setSearchJobs([]);
     }
-  }
+  };
+
+  // Handle Enter key press
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      if (searchTerm.length >= 3) {
+        fetchJobs(searchTerm);
+      } else {
+        setSearchJobs([]);
+      }
+    }
+  };
 
   return (
     <div>
       <div class="search-container">
         <div class="search-box">
-            <input type='text' placeholder='Search..' value={searchTerm} onChange={handleChange} />
+            <input type='text' placeholder='Search..' value={searchTerm}  onChange={handleChange}  onKeyPress={handleKeyPress} />
+            <button type="button" onClick={handleSearch} class="search-button">
+              <i className="fas fa-search"></i>
+            </button>
         </div>
       </div>
       <div class="content">
@@ -42,8 +61,9 @@ function App() {
               {
                 jobs.map((job)=> (
                   <li>
-                    <h3  key={job.id} class="title">{job.title}</h3>
-                    <p class="description">A short description of the first search result.</p>
+                    <span class="title">{job.title}</span>
+                    <span class="company">{job.company}</span>
+                    <a href={job.url} class="link">Description</a>
                   </li>
                   ))
               }

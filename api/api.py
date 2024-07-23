@@ -1,12 +1,14 @@
 import random
 import uvicorn
+import logging
 
 from fastapi import FastAPI, HTTPException, Query
 from typing import List, Optional
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 
-from api.common.ops import load_test_data
+from common.ops import load_test_data
+from job_query.job_query import ask
 
 job_list = load_test_data()
 # CORS middleware configuration
@@ -31,11 +33,9 @@ app.add_middleware(
 @app.get("/job/{query}")
 async def search_jobs(query: str):
     try:
-        jobs: list = []
-        for job in job_list:
-            if query.lower() in job['title'].lower():
-                jobs.append(job)
-        return jobs
+        response = ask(query=query)
+        logging.info(query,"=",response)
+        return response
     except:
         raise HTTPException(status_code=500, detail="Issue in request processing..")
 

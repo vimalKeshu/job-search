@@ -11,6 +11,8 @@ print(parentdir)
 
 from chromadb.api.types import GetResult, QueryResult
 from common.constant import *
+from email_sender.mailtrap.email_template import * 
+from email_sender.mailtrap.email_sender import * 
 
 
 def query_jobs_data(embedding) -> QueryResult:
@@ -38,7 +40,7 @@ if __name__ == '__main__':
                     #print('id: ', resumes['embeddings'][i])
                     logging.debug(jobs['metadatas'][0][j])
                     logging.debug(jobs['metadatas'][0][j]['company'].replace("\n", ""))
-                    # postings += """<li><a href={} style="color: #007bff; text-decoration: none;">{}</a></li>""".format(jobs['metadatas'][0][j]['url'], jobs['metadatas'][0][j]['company'].replace("\n", ""))
+                    postings += """<li><a href={} style="color: #007bff; text-decoration: none;">{}</a></li>""".format(jobs['metadatas'][0][j]['url'], jobs['metadatas'][0][j]['company'].replace("\n", ""))
                 #print(test_email_template.format(postings))
                 #send_email(receiver=receiver, html=build_template(job_html=postings))
     

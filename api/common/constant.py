@@ -18,6 +18,7 @@ BATCH_SIZE = 1000  # you can submit up to 2048 embedding inputs per request
 DB_PATH = "./api/storage/test/chromadb"
 OPENAI_KEY_NAME = 'MY_OPENAI_API_KEY'
 OPENAI_API_KEY = "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"
+MAILTRIP_API_TOKEN="bf1ab73fc39802edf73c0ffda987fdf2"
 
 # check for openai key from env
 if os.getenv(OPENAI_KEY_NAME) is not None:

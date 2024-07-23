@@ -1,6 +1,8 @@
 # imports
 import os 
 import sys
+import json
+import traceback
 
 currentdir = os.path.dirname(os.path.realpath(__file__))
 parentdir = os.path.dirname(currentdir)
@@ -36,8 +38,12 @@ def query_message(
     jobs: QueryResult = query_jobs_data(embedding=query_embedding)
     # print('query result:', jobs)
     if 'documents' in jobs:
-        introduction = 'Use the below jobs description to answer the subsequent question. If the answer cannot be found in the articles, write "I could not find an answer."'
-        question = f"\n\nQuestion: {query}"
+        introduction = '''
+        Answer the subsequent question using given job description and return the answer in below parsable json array string, 
+        in case of no answer please return empty json array string:
+        [{"url": string,"company": string,"title": string}]
+        '''
+        question = f"\n\nquestion: {query}"
         message = introduction
         for job in jobs['documents']:
             job_posting = f'\n\nJob Description:\n"""\n{job}\n"""'
@@ -57,29 +63,32 @@ def ask(
     model: str = GPT_MODEL,
     print_message: bool = False,
     token_budget: int = 4096 - 500,
-) -> str:
+) -> dict:
     """Answers a query using GPT and 
        a chroma db stored jobs data.
     """
-    message = query_message(query, model=model, token_budget=token_budget)
-    if len(message) != 0:
-        if print_message:
-            print(message)
-        messages = [
-            {"role": "system",
-                "content": "You answer questions about the jobs."},
-            {"role": "user", "content": message},
-        ]
-        response = openai_client.chat.completions.create(
-            model=model,
-            messages=messages,
-            temperature=0
-        )
-        response_message = response.choices[0].message.content
-        return response_message
-    else:
-        print('Not able to find any doc related to query:', query)
-
+    try:
+        message = query_message(query, model=model, token_budget=token_budget)
+        if len(message) != 0:
+            if print_message:
+                print(message)
+            messages = [
+                {"role": "system",
+                    "content": "You answer questions about the jobs."},
+                {"role": "user", "content": message},
+            ]
+            response = openai_client.chat.completions.create(
+                model=model,
+                messages=messages,
+                temperature=0
+            )
+            response_message = json.loads(response.choices[0].message.content)
+            return response_message
+        else:
+            print('Not able to find any doc related to query:', query)
+    except:
+        traceback.print_exc()
+    return {}
 
 if __name__ == "__main__":
-    print(ask(query='Is there any google job in india country? please provide its link only as json'))
+    print(ask(query='Suggest some software engineering jobs?'))

@@ -1,12 +1,15 @@
-import traceback
+'''
+    Meta uses graphql for loading the list of jobs.
+    As there were only 1K jobs, it loaded entire jobs thumpnail in single request as json.
+    I downloaded json manually and extracted the job ids from it.
+    Now, process will crawl for each job page html source.
+'''
 import requests
 import re
-import logging
 import os 
 import sys
 
 from queue import Queue
-from bs4 import BeautifulSoup
 
 
 currentdir = os.path.dirname(os.path.realpath(__file__))
@@ -16,7 +19,7 @@ sys.path.append(parentdir)
 
 page_url = "https://www.metacareers.com/jobs"
 job_url = "https://www.metacareers.com/jobs/"
-html_dir = currentdir + "/jobs/"
+html_dir = parentdir + "/meta/jobs/"
 pattern = r"\b\d{" + str(15) + r"}\b"
 regex = re.compile(pattern)
 
@@ -54,34 +57,32 @@ def check_valid_job_id(job_id:str)->bool:
             return False
     return True
 
-def crawl_jobs(link:str, job_id:str=''):
-    q:Queue = Queue()
+def crawl_jobs(jobid_json_filepath):
+    q:Queue = Queue() 
     visited:set = load_visited_urls()    
-    q.put(job_id)
+
+    job_str = ""
+    with open(jobid_json_filepath, 'r') as file:
+         job_str = file.read()
+
+    result:list[str] = find_matching_strings(pattern, job_str)
+
+    for value in result:
+        if check_valid_job_id(value):
+            q.put(value)
 
     while not q.empty():
         jid = q.get()
-        url = job_url + jid if len(jid) > 0 else link
+        url = job_url + jid
         page = download_html(url=url)
         print('visited page: ', url)
         if page:
-            if len(jid) > 0: 
-                write_html_page(job_id=jid, html_page=page)
-            result:list[str] = find_matching_strings(pattern, page)
-            temp_job_id=None
-            for value in result:
-                tokens = value.split(';')
-                if (len(tokens) == 3 and tokens[1]!=job_id and check_valid_job_id(tokens[1])):
-                    temp_job_id=tokens[1]
-                elif check_valid_job_id(value):
-                    temp_job_id=value
-                if temp_job_id and temp_job_id not in visited:
-                    q.put(temp_job_id)
-                    visited.add(temp_job_id)
+            write_html_page(job_id=jid, html_page=page)
+            visited.add(jid)
 
 
 if __name__ == '__main__':
-    cnt=1
-    while cnt < 126:
-        crawl_jobs(link=page_url, job_id='')
-        cnt += 1
+    jobid_json_filepath = currentdir + "/jobids.json"
+    if os.path.exists(jobid_json_filepath):
+        crawl_jobs(jobid_json_filepath=jobid_json_filepath)
+    

@@ -16,7 +16,7 @@ sys.path.append(parentdir)
 
 page_url = "https://www.google.com/about/careers/applications/jobs/results?page="
 job_url = "https://www.google.com/about/careers/applications/jobs/results/"
-html_dir = currentdir + "/jobs/"
+html_dir = parentdir + "/google/jobs/"
 pattern = r"\b\d{" + str(18) + r"}\b"
 regex = re.compile(pattern)
 

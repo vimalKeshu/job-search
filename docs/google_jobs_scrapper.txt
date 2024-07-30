@@ -25,3 +25,10 @@ https://www.google.com/about/careers/applications/jobs/results,80006020373324486
 https://www.google.com/about/careers/applications/jobs/results,119382181490369222,google
 https://www.google.com/about/careers/applications/jobs/results,136449007806227142,google
 https://www.google.com/about/careers/applications/jobs/results,103002885351973574,google
+
+
+
+
+
+using python regex pattern: r"\b\d{9}\b", can you please find the matching content in below text, please only return the expected output. don't suggest code or guidelines. 
+if don't know, reply saying that you don't know:

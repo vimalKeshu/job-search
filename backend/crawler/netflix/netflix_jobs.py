@@ -29,7 +29,7 @@ sys.path.append(parentdir)
 
 page_url = "https://netflix.eightfold.ai/api/apply/v2/jobs/{}/jobs"
 job_url = "https://netflix.eightfold.ai/api/apply/v2/jobs/{}"
-html_dir = parentdir + "/netflix/jobs/"
+html_dir = parentdir + "/netflix/jobs/json"
 pattern = r"\b\d{" + str(12) + r"}\b"
 regex = re.compile(pattern)
 

@@ -18,7 +18,7 @@ sys.path.append(parentdir)
 
 
 page_url = "https://www.metacareers.com/jobs"
-job_url = "https://www.metacareers.com/jobs/"
+job_url = "https://www.metacareers.com/jobs/{}"
 html_dir = parentdir + "/meta/jobs/"
 pattern = r"\b\d{" + str(15) + r"}\b"
 regex = re.compile(pattern)
@@ -46,7 +46,7 @@ def download_html(url):
         print(f"Error downloading HTML: {e}")
         return None
     
-def find_matching_strings(pattern, text):
+def find_matching_strings(text):
     # Find all matches in the text
     matches = regex.findall(text)
     return matches
@@ -65,7 +65,7 @@ def crawl_jobs(jobid_json_filepath):
     with open(jobid_json_filepath, 'r') as file:
          job_str = file.read()
 
-    result:list[str] = find_matching_strings(pattern, job_str)
+    result:list[str] = find_matching_strings(job_str)
 
     for value in result:
         if check_valid_job_id(value):
@@ -73,13 +73,17 @@ def crawl_jobs(jobid_json_filepath):
 
     while not q.empty():
         jid = q.get()
-        url = job_url + jid
+        url = job_url.format(jid)
         page = download_html(url=url)
-        print('visited page: ', url)
         if page:
             write_html_page(job_id=jid, html_page=page)
-            visited.add(jid)
-
+            print('visited page: ', url)
+            result:list[str] = find_matching_strings(page)
+            for value in result:
+                if check_valid_job_id(value) and not (value in visited):
+                    q.put(value)
+                    visited.add(value)
+                    print('==>', value)
 
 if __name__ == '__main__':
     jobid_json_filepath = currentdir + "/jobids.json"

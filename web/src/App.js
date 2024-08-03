@@ -3,7 +3,18 @@ import React, {useState, useEffect} from 'react';
 
 function App() {
   const [searchTerm, setSearchTerm] = useState('');
-  const [jobs, setSearchJobs] = useState([]);
+  const [jobs, setSearchJobs] = useState([
+    {'title': 'Software Engineer', 'company': 'Google', 'url': 'http://localhost:8080'},
+    {'title': 'Software Engineer', 'company': 'Google', 'url': 'http://localhost:8080'},
+    {'title': 'Software Engineer', 'company': 'Google', 'url': 'http://localhost:8080'},
+    {'title': 'Software Engineer', 'company': 'Google', 'url': 'http://localhost:8080'},
+    {'title': 'Software Engineer', 'company': 'Google', 'url': 'http://localhost:8080'},
+    {'title': 'Software Engineer', 'company': 'Google', 'url': 'http://localhost:8080'},
+    {'title': 'Software Engineer', 'company': 'Google', 'url': 'http://localhost:8080'},
+    {'title': 'Software Engineer', 'company': 'Google', 'url': 'http://localhost:8080'},
+    {'title': 'Software Engineer', 'company': 'Google', 'url': 'http://localhost:8080'},
+    {'title': 'Software Engineer', 'company': 'Google', 'url': 'http://localhost:8080'}
+  ]);
 
   const fetchJobs = async (query) => {
     try {
@@ -56,8 +67,8 @@ function App() {
             </button>
         </div>
       </div>
-      <div class="content">
-        <ul class="search-results">
+      <div class="search-results">
+        <ul>
               {
                 jobs.map((job)=> (
                   <li>

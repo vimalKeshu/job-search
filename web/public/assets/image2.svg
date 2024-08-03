@@ -3,8 +3,8 @@
 <path d="M5 19H69" stroke="#1E1E1E" stroke-width="8" stroke-linecap="round" stroke-linejoin="bevel"/>
 <path d="M37 19V67" stroke="#1E1E1E" stroke-width="8" stroke-linecap="round" stroke-linejoin="bevel"/>
 <path d="M21 51L37 67" stroke="#1E1E1E" stroke-width="8" stroke-linecap="round" stroke-linejoin="bevel"/>
-<circle cx="13" cy="11" r="8" stroke="#1E1E1E" stroke-width="4" stroke-linecap="round"/>
-<circle cx="61" cy="27" r="8" stroke="#1E1E1E" stroke-width="4" stroke-linecap="round"/>
-<path d="M13.2028 10.5021H13.2029" stroke="#1E1E1E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M61.4859 27.2155H61.486" stroke="#1E1E1E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="61" cy="11" r="8" stroke="#1E1E1E" stroke-width="4" stroke-linecap="round"/>
+<circle cx="13" cy="27" r="8" stroke="#1E1E1E" stroke-width="4" stroke-linecap="round"/>
+<path d="M60.7028 10.7521H60.7029" stroke="#1E1E1E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M12.7359 27.4655H12.736" stroke="#1E1E1E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

@@ -12,8 +12,8 @@ sys.path.append(parentdir)
 
 GPT_MODEL = "gpt-4o-mini"  # model for tokenizer to use
 EMBEDDING_MODEL = "text-embedding-3-large"
-DB_PATH = "/Users/vimal.chaudhari/Downloads/vimalKeshu/job-search/backend/storage/prod/chromadb"
-
+DB_PATH = parentdir + "/storage/prod/chromadb"
+        
 # clients
 openai.api_key = os.getenv("OPENAI_API_KEY")
 openai_client = openai.OpenAI(api_key=openai.api_key)
@@ -60,7 +60,7 @@ def query(question:str, criteria_distance:float=0.5, size:int=10):
     return jobs
 
 if __name__=='__main__':
-    jobs = query(question="give me google software engineering jobs located only in india.",)
-    for job in jobs:
-        print(job['title'], job['company'], job['distance'], job['url'])
-    # print(job_collection.count())
+    # jobs = query(question="give me google software engineering jobs located only in india.",)
+    # for job in jobs:
+    #     print(job['title'], job['company'], job['distance'], job['url'])
+    print(job_collection.count())

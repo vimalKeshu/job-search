@@ -1,34 +1,49 @@
 import './App.css';
 import React, {useState, useEffect} from 'react';
+import Loader from './components/loader/Loader';
 
 function App() {
   const [searchTerm, setSearchTerm] = useState('');
+  const [loading, setLoading] = useState(true);
   const [jobs, setSearchJobs] = useState([
-    {'title': 'Software Engineer', 'company': 'Google', 'url': 'http://localhost:8080'},
-    {'title': 'Software Engineer', 'company': 'Google', 'url': 'http://localhost:8080'},
-    {'title': 'Software Engineer', 'company': 'Google', 'url': 'http://localhost:8080'},
-    {'title': 'Software Engineer', 'company': 'Google', 'url': 'http://localhost:8080'},
-    {'title': 'Software Engineer', 'company': 'Google', 'url': 'http://localhost:8080'},
-    {'title': 'Software Engineer', 'company': 'Google', 'url': 'http://localhost:8080'},
-    {'title': 'Software Engineer', 'company': 'Google', 'url': 'http://localhost:8080'},
-    {'title': 'Software Engineer', 'company': 'Google', 'url': 'http://localhost:8080'},
-    {'title': 'Software Engineer', 'company': 'Google', 'url': 'http://localhost:8080'},
-    {'title': 'Software Engineer', 'company': 'Google', 'url': 'http://localhost:8080'}
+    {'id':1,'title': 'Software Engineer, Machine Learning', 'company': 'Google', 'url': 'http://localhost:8080'},
+    {'id':2,'title': 'Software Engineer', 'company': 'Google', 'url': 'http://localhost:8080'},
+    {'id':3,'title': 'Software Engineer', 'company': 'Google', 'url': 'http://localhost:8080'},
+    {'id':4,'title': 'Software Engineer', 'company': 'Google', 'url': 'http://localhost:8080'},
+    {'id':5,'title': 'Software Engineer', 'company': 'Google', 'url': 'http://localhost:8080'},
+    {'id':6,'title': 'Software Engineer', 'company': 'Google', 'url': 'http://localhost:8080'},
+    {'id':7,'title': 'Software Engineer', 'company': 'Google', 'url': 'http://localhost:8080'},
+    {'id':8,'title': 'Software Engineer', 'company': 'Google', 'url': 'http://localhost:8080'},
+    {'id':9,'title': 'Software Engineer', 'company': 'Google', 'url': 'http://localhost:8080'},
+    {'id':10,'title': 'Software Engineer', 'company': 'Google', 'url': 'http://localhost:8080'},
+    {'id':1,'title': 'Software Engineer, Machine Learning', 'company': 'Google', 'url': 'http://localhost:8080'},
+    {'id':2,'title': 'Software Engineer', 'company': 'Google', 'url': 'http://localhost:8080'},
+    {'id':3,'title': 'Software Engineer', 'company': 'Google', 'url': 'http://localhost:8080'},
+    {'id':4,'title': 'Software Engineer', 'company': 'Google', 'url': 'http://localhost:8080'},
+    {'id':5,'title': 'Software Engineer', 'company': 'Google', 'url': 'http://localhost:8080'},
+    {'id':6,'title': 'Software Engineer', 'company': 'Google', 'url': 'http://localhost:8080'},
+    {'id':7,'title': 'Software Engineer', 'company': 'Google', 'url': 'http://localhost:8080'},
+    {'id':8,'title': 'Software Engineer', 'company': 'Google', 'url': 'http://localhost:8080'},
+    {'id':9,'title': 'Software Engineer', 'company': 'Google', 'url': 'http://localhost:8080'},
+    {'id':10,'title': 'Software Engineer', 'company': 'Google', 'url': 'http://localhost:8080'}    
   ]);
 
   const fetchJobs = async (query) => {
     try {
+      setLoading(true);
       const response = await fetch(`http://localhost:8000/job/${query}`);
       const data = await response.json();
       setSearchJobs(data)
       console.log(data);
+      setLoading(false); // Hide loader
     } catch (error) {
       console.error('Error:',error);
+    } finally {
+      
     }
   }
       
   useEffect(() => {
-    //fetchJobs('');
   }, []);
 
   const handleChange = (event) => {
@@ -58,12 +73,15 @@ function App() {
   };
 
   return (
-    <div>
+    <div class="container">
+      <div>
+        {loading ? <Loader /> : <div className="content"></div>}
+      </div>  
       <div class="search-container">
         <div class="search-box">
-            <input type='text' placeholder='Search..' value={searchTerm}  onChange={handleChange}  onKeyPress={handleKeyPress} />
-            <button type="button" onClick={handleSearch} class="search-button">
-              <i className="fas fa-search"></i>
+            <textarea placeholder='Search..' value={searchTerm}  onChange={handleChange}  onKeyPress={handleKeyPress} />
+            <button type="button" onClick={handleSearch}>
+              <i>Search</i>
             </button>
         </div>
       </div>
@@ -71,7 +89,7 @@ function App() {
         <ul>
               {
                 jobs.map((job)=> (
-                  <li>
+                  <li key={job.id}>
                     <span class="title">{job.title}</span>
                     <span class="company">{job.company}</span>
                     <a href={job.url} class="link">Description</a>

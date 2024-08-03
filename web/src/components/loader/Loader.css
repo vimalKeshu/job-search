@@ -1,0 +1,61 @@
+/* Loader.css */
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  
+  .image-slider {
+    position: relative;
+    width: 120px; /* Adjust size as needed */
+    height: 120px; /* Adjust size as needed */
+    overflow: hidden;
+  }
+  
+  .slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+  
+  .image1 {
+    animation: fadeImage1 2s infinite;
+  }
+  
+  .image2 {
+    animation: fadeImage2 2s infinite;
+  }
+  
+  @keyframes fadeImage1 {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeImage2 {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  

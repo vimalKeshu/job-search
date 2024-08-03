@@ -1,7 +1,7 @@
 fastapi==0.111.1
 numpy
 openai
-chromadb
+chromadb==0.5.3
 langchain_community
 tiktoken
 beautifulsoup4

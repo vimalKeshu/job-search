@@ -1,16 +1,11 @@
-import random
 import uvicorn
-import logging
+import traceback
 
-from fastapi import FastAPI, HTTPException, Query
-from typing import List, Optional
-from pydantic import BaseModel
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
-from common.ops import load_test_data
-from job_query.job_query import ask
+from job_query import query
 
-job_list = load_test_data()
 # CORS middleware configuration
 origins = [
     "http://localhost:3000",
@@ -30,20 +25,22 @@ app.add_middleware(
 )
 
 
-@app.get("/job/{query}")
-async def search_jobs(query: str):
+@app.get("/job/{q}")
+async def search_jobs(q: str):
     try:
-        response = ask(query=query)
-        logging.info(query,"=",response)
+        response = query(question=q)
+        #logging.info(q + "=" + response)
         return response
     except:
+        traceback.print_exc()
         raise HTTPException(status_code=500, detail="Issue in request processing..")
 
 @app.get("/job")
 async def get_all_jobs():
     try:
-        return job_list
+        return []
     except:
+        traceback.print_exc()
         raise HTTPException(status_code=500, detail="Issue in request processing..")
 
 if __name__ == "__main__":

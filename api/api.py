@@ -1,5 +1,6 @@
 import uvicorn
 import traceback
+import time
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -25,11 +26,12 @@ app.add_middleware(
 )
 
 
-@app.get("/job/{q}")
+@app.get("/v1/job/{q}")
 async def search_jobs(q: str):
     try:
         response = query(question=q)
         #logging.info(q + "=" + response)
+        time.sleep(5)
         return response
     except:
         traceback.print_exc()

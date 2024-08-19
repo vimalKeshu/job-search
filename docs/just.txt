@@ -1,0 +1,20 @@
+summary:
+Experienced Staff Engineer with over 13 years in designing and developing fault-tolerant and scalable systems. 
+Proven track record in building data lakes, big data platforms, and mentoring team members. 
+Successfully contributed to open-source project and led the development of data ingestion services supporting thousands of pipelines. 
+
+Seeking to leverage expertise in software engineering to drive innovative solutions.
+
+
+**Profile Summary:**
+
+A highly skilled software engineer with extensive experience in designing and developing fault-tolerant and scalable systems. Proficient in crafting efficient data structures and algorithms, with a strong focus on building and architecting big data platforms, ingestion systems, and analytics pipelines. Expert in constructing data lakes, lake houses, and their ecosystems to optimize data management processes. Known for a product-focused mindset, translating ideas into fully realized products, and an ability to quickly adapt to new tools and technologies. Committed to engineering excellence, with a passion for mentoring team members and contributing to open-source projects.
+
+
+
+Replit to deploy gpt plugin 
+https://www.youtube.com/watch?v=-GV7DAJ4dVU
+
+
+ChatGPT plugin auth mechanism 
+https://www.hackwithgpt.com/blog/chatgpt-plugin-authentication-guide/

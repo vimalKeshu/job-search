@@ -1,12 +1,9 @@
-import traceback
 import requests
 import re
-import logging
 import os 
 import sys
 
 from queue import Queue
-from bs4 import BeautifulSoup
 
 
 currentdir = os.path.dirname(os.path.realpath(__file__))

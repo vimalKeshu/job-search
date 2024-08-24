@@ -11,3 +11,6 @@ https://python.langchain.com/docs/modules/data_connection/document_loaders/pdf/
 
 
 https://github.com/openai/openai-cookbook/blob/main/examples/Embedding_long_inputs.ipynb
+
+
+https://chatgpt.com/g/g-B5qV52ahZ-job-search

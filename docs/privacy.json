@@ -1,0 +1,16 @@
+{
+    "privacy_policy": {
+      "effective_date": "18/08/2024",
+      "introduction": "Welcome to JOB SEARCH GPT. We are committed to safeguarding your privacy and ensuring the security of your personal information. This Privacy Policy outlines how we collect, use, store, and protect your data when you interact with our job search GPT.",
+      "information_collection": {
+        "query_data": "The search terms you input to find relevant jobs."
+      },
+      "use_of_information": {
+        "service_provision": "To deliver job search results based on your queries.",
+        "service_improvement": "To enhance the functionality and user experience of JOB SEARCH GPT.",
+        "security": "To monitor and prevent any potential security issues or misuse of the service."
+      },
+      "changes_to_policy": "We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated effective date."
+    }
+}
+  

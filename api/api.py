@@ -5,12 +5,12 @@ import time
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
-from job_query import query
+from job_query import query_reranking
 
 # CORS middleware configuration
 origins = [
-    "http://localhost:3000",
-    "http://192.168.29.102:3000"
+    # "http://localhost:3000",
+    # "http://192.168.29.102:3000"
     # Add more allowed origins as needed
 ]
 
@@ -26,11 +26,11 @@ app.add_middleware(
 )
 
 
-@app.get("/v1/job/{q}")
+@app.get("/job/{q}")
 async def search_jobs(q: str):
     try:
-        response = query(question=q)
-        #logging.info(q + "=" + response)
+        response = query_reranking(question=q)
+        #print(q + "=" + response)
         time.sleep(5)
         return response
     except:

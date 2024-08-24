@@ -1,0 +1,18 @@
+{
+    "main_page": "https://in.linkedin.com/jobs/search?keywords=&location=United%20States&f_TPR=r2592000",
+    "job_page": "https://www.linkedin.com/jobs/view",
+    "job_id_digit": "10",
+    "company_url":[
+        "https://in.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=Google&location=United%2BStates&geoId=103644278&trk=public_jobs_jobs-search-bar_search-submit&f_TPR=r2592000&start=",
+        "https://in.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=Apple&location=United%2BStates&geoId=103644278&trk=public_jobs_jobs-search-bar_search-submit&f_TPR=r2592000&start=",
+        "https://in.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=Meta&location=United%2BStates&geoId=103644278&trk=public_jobs_jobs-search-bar_search-submit&f_TPR=r2592000&start=",
+        "https://in.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=Netflix&location=United%2BStates&geoId=103644278&trk=public_jobs_jobs-search-bar_search-submit&f_TPR=r2592000&start=",
+        "https://in.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=Amazon&location=United%2BStates&geoId=103644278&trk=public_jobs_jobs-search-bar_search-submit&f_TPR=r2592000&start=",
+
+        "https://in.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=Google&location=India&geoId=103644278&trk=public_jobs_jobs-search-bar_search-submit&f_TPR=r2592000&start=",
+        "https://in.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=Apple&location=India&geoId=103644278&trk=public_jobs_jobs-search-bar_search-submit&f_TPR=r2592000&start=",
+        "https://in.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=Meta&location=India&geoId=103644278&trk=public_jobs_jobs-search-bar_search-submit&f_TPR=r2592000&start=",
+        "https://in.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=Netflix&location=India&geoId=103644278&trk=public_jobs_jobs-search-bar_search-submit&f_TPR=r2592000&start=",
+        "https://in.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=Amazon&location=India&geoId=103644278&trk=public_jobs_jobs-search-bar_search-submit&f_TPR=r2592000&start="
+    ]
+}

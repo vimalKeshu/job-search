@@ -5,3 +5,5 @@ langchain_community
 tiktoken
 beautifulsoup4
 pypdf
+lxml
+google-generativeai

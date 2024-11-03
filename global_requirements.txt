@@ -1,0 +1,16 @@
+fastapi==0.111.1
+chromadb==0.5.3
+tiktoken
+google-generativeai
+numpy
+openai
+chromadb==0.5.3
+langchain_community
+tiktoken
+beautifulsoup4
+pypdf
+lxml
+google-generativeai
+torch
+transformers>=4.34
+accelerate

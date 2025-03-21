@@ -1,0 +1,32 @@
+{
+    "jobTitle": "string",
+    "company": {
+      "name": "string",
+      "industry": "string",
+      "size": "string",
+      "location": "string"
+    },
+    "location": "string",
+    "jobType": "string",
+    "employmentType": "string",
+    "experienceLevel": "string",
+    "salary": {
+      "amount": "string",
+      "currency": "string"
+    },
+    "jobFunction": "string",
+    "industry": "string",
+    "description": "string",
+    "responsibilities": "string",
+    "qualifications": {
+      "required": "string",
+      "preferred": "string"
+    },
+    "skills": [
+      "string"
+    ],
+    "postedDate": "string",
+    "applicationDeadline": "string",
+    "benefits": "string",
+    "remoteWork": "string"
+  }

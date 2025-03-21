@@ -1,0 +1,9 @@
+sentencepiece
+torch
+transformers 
+datasets 
+hydra-core 
+omegaconf
+wandb
+huggingface_hub
+numpy

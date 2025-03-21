@@ -1,0 +1,4 @@
+fastapi==0.111.1
+chromadb==0.5.3
+tiktoken
+google-generativeai

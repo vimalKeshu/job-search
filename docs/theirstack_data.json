@@ -1,0 +1,119 @@
+{
+    "metadata": {
+      "total_results": 2034,
+      "truncated_results": 0,
+      "truncated_companies": 0,
+      "total_companies": 1045
+    },
+    "data": [
+      {
+        "id": 1234,
+        "job_title": "Senior Data Engineer",
+        "url": "https://example.com/job/1234",
+        "date_posted": "2021-01-01",
+        "has_blurred_data": false,
+        "company": "…",
+        "location": "…",
+        "short_location": "…",
+        "long_location": "…",
+        "state_code": "…",
+        "latitude": 1,
+        "longitude": 1,
+        "postal_code": "…",
+        "remote": true,
+        "hybrid": true,
+        "salary_string": "…",
+        "min_annual_salary": 1,
+        "min_annual_salary_usd": 1,
+        "max_annual_salary": 1,
+        "max_annual_salary_usd": 1,
+        "avg_annual_salary_usd": 1,
+        "salary_currency": "…",
+        "countries": [
+          "…"
+        ],
+        "country": "…",
+        "cities": [
+          "…"
+        ],
+        "continents": [
+          "…"
+        ],
+        "seniority": "Mid-Level",
+        "country_codes": [
+          "…"
+        ],
+        "country_code": "…",
+        "discovered_at": "2024-08-18T12:27:44.936Z",
+        "final_url": "…",
+        "hiring_team": [
+          {
+            "first_name": "…",
+            "full_name": "…",
+            "linkedin_url": "…",
+            "role": "…",
+            "image_url": "…",
+            "thumbnail_url": "…"
+          }
+        ],
+        "company_domain": "…",
+        "description": "…",
+        "company_object": {
+          "name": "Google",
+          "domain": "google.com",
+          "industry": "internet",
+          "country": "United States",
+          "country_code": "…",
+          "employee_count": 7543,
+          "logo": "https://example.com/logo.png",
+          "num_jobs": 746,
+          "num_technologies": 746,
+          "url": "google.com",
+          "industry_id": 1,
+          "linkedin_url": "http://www.linkedin.com/company/google",
+          "num_jobs_last_30_days": 34,
+          "num_jobs_found": 23,
+          "yc_batch": "W21",
+          "apollo_id": "5b839bd0324d4445051f9a5a",
+          "linkedin_id": "…",
+          "url_source": "…",
+          "is_recruiting_agency": true,
+          "id": "…",
+          "founded_year": 2019,
+          "annual_revenue_usd": 189000000,
+          "annual_revenue_usd_readable": "189M",
+          "total_funding_usd": 500000,
+          "last_funding_round_date": "2020-01-01",
+          "last_funding_round_amount_readable": "$1.2M",
+          "employee_count_range": "1001-5000",
+          "long_description": "Google is a California-based multinational technology company that offers internet-related services such as a search engine, online advertising and cloud computing.",
+          "seo_description": "…",
+          "city": "Mountain View",
+          "postal_code": "28040",
+          "company_keywords": [],
+          "alexa_ranking": 1,
+          "publicly_traded_symbol": "GOOG",
+          "publicly_traded_exchange": "NASDAQ",
+          "investors": [
+            "…"
+          ],
+          "funding_stage": "…",
+          "has_blurred_data": false,
+          "technology_slugs": [
+            "kafka",
+            "elasticsearch"
+          ],
+          "technology_names": [
+            "Kafka",
+            "Elasticsearch"
+          ]
+        },
+        "normalized_title": "…",
+        "manager_roles": [
+          "…"
+        ],
+        "matching_phrases": [],
+        "matching_words": []
+      }
+    ]
+  }

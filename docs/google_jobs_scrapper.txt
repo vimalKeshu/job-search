@@ -1,0 +1,34 @@
+get the job id from the url 
+google job web page uses job id as data-id tag of div for describe about that job 
+h2 tag under div represent job title 
+
+
+jsdata=
+
+https://www.google.com/about/careers/applications/jobs/results,95344137250710214,google
+https://www.google.com/about/careers/applications/jobs/results,116310937081651910,google
+https://www.google.com/about/careers/applications/jobs/results,113217780018225862,google
+https://www.google.com/about/careers/applications/jobs/results,78528517800633030,google
+https://www.google.com/about/careers/applications/jobs/results,110544233743426246,google
+https://www.google.com/about/careers/applications/jobs/results,142343026188919494,google
+https://www.google.com/about/careers/applications/jobs/results,86634891688452806,google
+https://www.google.com/about/careers/applications/jobs/results,114967069732020934,google
+https://www.google.com/about/careers/applications/jobs/results,142743996819481286,google
+https://www.google.com/about/careers/applications/jobs/results,136557718931415750,google
+https://www.google.com/about/careers/applications/jobs/results,92443687853662918,google
+https://www.google.com/about/careers/applications/jobs/results,117797477607711430,google
+https://www.google.com/about/careers/applications/jobs/results,119882206683243206,google
+https://www.google.com/about/careers/applications/jobs/results,81179531603256006,google
+https://www.google.com/about/careers/applications/jobs/results,120349966739612358,google
+https://www.google.com/about/careers/applications/jobs/results,134408645071774406,google
+https://www.google.com/about/careers/applications/jobs/results,80006020373324486,google
+https://www.google.com/about/careers/applications/jobs/results,119382181490369222,google
+https://www.google.com/about/careers/applications/jobs/results,136449007806227142,google
+https://www.google.com/about/careers/applications/jobs/results,103002885351973574,google
+
+
+
+
+
+using python regex pattern: r"\b\d{9}\b", can you please find the matching content in below text, please only return the expected output. don't suggest code or guidelines. 
+if don't know, reply saying that you don't know:

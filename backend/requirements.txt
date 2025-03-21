@@ -1,0 +1,9 @@
+numpy
+openai
+chromadb==0.5.3
+langchain_community
+tiktoken
+beautifulsoup4
+pypdf
+lxml
+google-generativeai

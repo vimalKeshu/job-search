@@ -1,0 +1,28 @@
+dataset:
+  name: "vmal/jobs_dataset"  # Hugging Face dataset
+
+model:
+  name: 'google/flan-t5-xl'
+
+training:
+  seed: 42
+  epochs: 3
+  batch_size: 1  # adjust based on GPU memory
+  lr: 3e-5  # learning rate
+  save_path: "flan-t5-xl-job-parser"  # model save directory
+  checkpoint_dir_name: "chk-pt"
+  grad_accumulation_steps: 2  # Helps with VRAM efficiency
+  mixed_precision: "fp16"  # use bf16 for L4, fp16 for A40, A100
+  gradient_checkpointing: False # enable Gradient Checkpointing
+  checkpoint_interval: 2
+
+validation:
+  batch_size: 1
+
+wandb:
+  project: "flan-t5-xl-job-parser"
+  run_name: "flan-t5-ddp-run"
+
+huggingface:
+  repo_name: "vmal/flan-t5-xl-job-parser"  # change to your HF repo name
+  push_after_training: True  # set to False if you don't want to auto-upload

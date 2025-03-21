@@ -1,0 +1,62 @@
+/* .about-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  } */
+
+ /* Reset some default styles */
+
+.about {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  /* max-width: 800px; */
+  margin: 0 auto;
+}
+
+.profile-photo {
+  width: 150px; /* Adjust size as needed */
+  height: 150px;
+  border-radius: 50%; /* Makes the photo circular */
+  object-fit: cover; /* Ensures the photo covers the entire area */
+  margin-bottom: 20px;
+  border: 5px solid #ddd; /* Optional: Adds a border around the photo */
+}
+
+.description {
+  max-width: 600px; /* Limits the width of the text area */
+}
+
+.description h1 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.description p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}

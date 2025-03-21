@@ -1,0 +1,16 @@
+https://blog.langchain.dev/automating-web-research/
+https://python.langchain.com/docs/use_cases/web_scraping
+https://github.com/assafelovic/nlp_url_summarizer/blob/master/url_summarizer.py
+https://github.com/assafelovic/gpt-researcher?ref=blog.langchain.dev
+
+
+
+
+https://lilianweng.github.io/posts/2023-06-23-agent/?ref=blog.langchain.dev
+https://python.langchain.com/docs/modules/data_connection/document_loaders/pdf/
+
+
+https://github.com/openai/openai-cookbook/blob/main/examples/Embedding_long_inputs.ipynb
+
+
+https://chatgpt.com/g/g-B5qV52ahZ-job-search

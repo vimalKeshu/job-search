@@ -4,7 +4,7 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email_sender.mailtrap.email_template import build_template
 
-MAILTRIP_API_TOKEN="bf1ab73fc39802edf73c0ffda987fdf2"
+MAILTRIP_API_TOKEN="bf1ab73fc3"
 
 def send_email(receiver, html, subject="Job recommendation", sender="Job Recommender <job.recommender@itjobsrecommender.org>"):
     # Create a multipart message and set headers
